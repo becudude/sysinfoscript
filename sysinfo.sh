@@ -143,7 +143,7 @@ if [[  $P_ST != ''  ]]; then
 		printf "$1\t\t$P_ST\n" >> sysinfo.txt
 	fi
 else
-	>&2 printf "Error: The service '$1' does not exist on this machine!\n" >> sysinfo.txt
+	>&2 printf "Error: The service '$1' does not exist on this machine or in /etc/init.d/!\n" >> sysinfo.txt
 fi
 
 echo "11. Memory Use (KiB)" >> sysinfo.txt
