@@ -16,7 +16,8 @@ echo "2. IP: $IP" >> sysinfo.txt
 #path lookup
 LOOK=$(apache2ctl -V | grep HTTPD_ROOT | cut -f2 -d"=" | cut -d '"' -f2)
 printf "3. ServerName: " >> sysinfo.txt
-cat $LOOK/sites-available/000-default.conf | grep ServerName | grep -v "#" | cut -f2 | sed 's/ /:/' | cut -f2 -d':' >> sysinfo.txt
+cat $LOOK/sites-available/000-default.conf | grep ServerName | grep -v "#" | cut -f2 | sed 's/ /:/' | cut -f2 -d':' | tr '\n' ' ' >> sysinfo.txt
+printf "\n" >> sysinfo.txt
 
 ALIASES=$(cat $LOOK/sites-available/000-default.conf | grep ServerAlias | grep -v "#" | cut -f2 | sed 's/ServerAlias //' | tr '\n' ' ')
 echo "4. ServerAlias: $ALIASES" >> sysinfo.txt
