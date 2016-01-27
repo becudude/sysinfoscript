@@ -147,7 +147,7 @@ else
 fi
 
 echo "11. Memory Use (KiB)" >> sysinfo.txt
-TOTAL_MEM=$(ps aux | grep $1 | grep -v bash | grep -v grep | awk '{print $6}' | tr '\n' ' ')
+TOTAL_MEM=$(ps aux | grep $1 | grep "/usr" | awk '{print $6}' | tr '\n' ' ')
 
 if [[  $TOTAL_MEM == ''  ]]; then
 	>&2 printf "Error: The Service '$1' does not exist on this machine!\n" >> sysinfo.txt
