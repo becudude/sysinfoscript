@@ -1,5 +1,4 @@
 #!/bin/bash
-# variabila hostname
 
 if [[  $# -eq 0  ]]; then
 	echo "sysinfo: usage: sysinfo [service_name]"
